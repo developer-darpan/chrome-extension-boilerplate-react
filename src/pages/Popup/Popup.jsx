@@ -1,9 +1,14 @@
 import React from 'react';
 import logo from '../../assets/img/logo.svg';
 import Greetings from '../../containers/Greetings/Greetings';
+import {Api} from '@cennznet/api'
 import './Popup.css';
 
 const Popup = () => {
+  React.useEffect(()=>{
+    console.log('XXX: starting api...');
+    Api.create({provider: 'wss://nikau.centrality.me/public/ws'}).then(api => console.log('XXX: created api', api)).catch((e)=>console.log('XXX: error', e))
+  },[])
   return (
     <div className="App">
       <header className="App-header">
